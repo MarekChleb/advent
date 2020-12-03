@@ -1,9 +1,7 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 
 	"github.com/mw332637/advent/ioutils"
 	"github.com/mw332637/advent/solutions"
@@ -15,14 +13,9 @@ func main() {
 	fileNames := ioutils.ReadArgs()
 
 	for _, name := range fileNames {
+		lines = ioutils.LoadFileLines(name)
+
 		fmt.Println("File: ", name)
-		lines = []string{}
-		file, _ := os.Open(name)
-		r := bufio.NewScanner(file)
-		for r.Scan() {
-			lines = append(lines, r.Text())
-		}
-		file.Close()
 
 		fmt.Print("A: ")
 		solutions.Ex3a(lines)
