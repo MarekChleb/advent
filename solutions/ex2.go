@@ -1,4 +1,4 @@
-package main
+package solutions
 
 import (
 	"fmt"
@@ -12,7 +12,7 @@ type pass struct {
 	p        string
 }
 
-func ex2a() {
+func Ex2a(lines []string) {
 
 	count := 0
 
@@ -45,7 +45,7 @@ func ex2a() {
 	fmt.Println(count)
 }
 
-func ex2b() {
+func Ex2b(lines []string) {
 
 	count := 0
 

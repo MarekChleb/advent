@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/mw332637/advent/ioutils"
+	"github.com/mw332637/advent/solutions"
 )
 
 var lines []string
@@ -14,7 +15,7 @@ func main() {
 	fileNames := ioutils.ReadArgs()
 
 	for _, name := range fileNames {
-		fmt.Println("\nFile: ", name)
+		fmt.Println("File: ", name)
 		lines = []string{}
 		file, _ := os.Open(name)
 		r := bufio.NewScanner(file)
@@ -23,7 +24,12 @@ func main() {
 		}
 		file.Close()
 
-		ex3a()
-		ex3b()
+		fmt.Print("A: ")
+		solutions.Ex3a(lines)
+
+		fmt.Print("B: ")
+		solutions.Ex3b(lines)
+
+		fmt.Println()
 	}
 }
