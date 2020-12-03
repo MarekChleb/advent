@@ -23,7 +23,7 @@ func main() {
 		}
 		file.Close()
 
-		ex2a()
-		ex2b()
+		ex3a()
+		ex3b()
 	}
 }
