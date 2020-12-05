@@ -2,12 +2,23 @@ package ioutils
 
 import (
 	"bufio"
+	"io/ioutil"
+	"log"
 	"os"
+	"regexp"
 )
 
-func ReadArgs() (fileNames []string) {
-	for i := 1; i < len(os.Args); i++ {
-		fileNames = append(fileNames, os.Args[i])
+func ReadArgs(path string) (fileNames []string) {
+	files, err := ioutil.ReadDir(path)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	re := regexp.MustCompile("[a-zA-Z0-9]+.in$")
+	for _, f := range files {
+		if re.MatchString(f.Name()) {
+			fileNames = append(fileNames, path+"/"+f.Name())
+		}
 	}
 
 	return
