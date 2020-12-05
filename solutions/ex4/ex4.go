@@ -1,12 +1,34 @@
 package ex4
 
 import (
+	"encoding/json"
 	"fmt"
 	"regexp"
 	"strings"
 )
 
 type Passport struct {
+	BirthYear      string `json:"byr"`
+	IssueYear      string `json:"iyr"`
+	ExpirationYear string `json:"eyr"`
+	Height         string `json:"hgt"`
+	HairColor      string `json:"hcl"`
+	EyeColor       string `json:"ecl"`
+	PassportID     string `json:"pid"`
+	CountryID      string `json:"cid"`
+}
+
+func PassportFromMap(data map[string]string) (Passport, error) {
+	if !mapIsValidWithFields(data) {
+		return Passport{}, fmt.Errorf("Map is invalid")
+	}
+	dataJSON, err := json.Marshal(data)
+	if err != nil {
+		return Passport{}, err
+	}
+	var p Passport
+	err = json.Unmarshal(dataJSON, &p)
+	return p, err
 }
 
 var requiredFields = []string{"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
