@@ -18,10 +18,10 @@ func main() {
 		fmt.Println("File: ", name)
 
 		fmt.Print("A: ")
-		solutions.Ex3a(lines)
+		solutions.Ex4a(lines)
 
 		fmt.Print("B: ")
-		solutions.Ex3b(lines)
+		solutions.Ex4b(lines)
 
 		fmt.Println()
 	}
