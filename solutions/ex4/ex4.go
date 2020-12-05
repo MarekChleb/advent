@@ -1,9 +1,8 @@
-package solutions
+package ex4
 
 import (
 	"fmt"
 	"regexp"
-	"strconv"
 	"strings"
 )
 
@@ -22,7 +21,9 @@ var validator = map[string]func(string) bool{
 	"pid": PIDValidator,
 }
 
-func Ex4a(lines []string) {
+const Path = "./solutions/ex4"
+
+func A(lines []string) {
 	count := 0
 	m := map[string]string{}
 
@@ -45,7 +46,7 @@ func Ex4a(lines []string) {
 
 }
 
-func Ex4b(lines []string) {
+func B(lines []string) {
 	count := 0
 	m := map[string]string{}
 
@@ -92,27 +93,33 @@ func mapIsValidWithFields(m map[string]string) bool {
 }
 
 func BYRValidator(s string) bool {
-	v, err := strconv.ParseInt(s, 10, 64)
-	if err != nil {
-		return false
-	}
-	return v >= 1920 && v <= 2002
+	// v, err := strconv.ParseInt(s, 10, 64)
+	// if err != nil {
+	// 	return false
+	// }
+	// return v >= 1920 && v <= 2002
+	re := regexp.MustCompile("(19[2-9][0-9]|200[0-2])")
+	return re.MatchString(s)
 }
 
 func IYRValidator(s string) bool {
-	v, err := strconv.ParseInt(s, 10, 64)
-	if err != nil {
-		return false
-	}
-	return v >= 2010 && v <= 2020
+	// v, err := strconv.ParseInt(s, 10, 64)
+	// if err != nil {
+	// 	return false
+	// }
+	// return v >= 2010 && v <= 2020
+	re := regexp.MustCompile("20(1[0-9]|20)")
+	return re.MatchString(s)
 }
 
 func EYRValidator(s string) bool {
-	v, err := strconv.ParseInt(s, 10, 64)
-	if err != nil {
-		return false
-	}
-	return v >= 2020 && v <= 2030
+	// v, err := strconv.ParseInt(s, 10, 64)
+	// if err != nil {
+	// 	return false
+	// }
+	// return v >= 2020 && v <= 2030
+	re := regexp.MustCompile("20(2[0-9]|30)")
+	return re.MatchString(s)
 }
 
 func HGTValidator(s string) bool {
@@ -131,7 +138,9 @@ func HGTValidator(s string) bool {
 	// } else if measure == "in" {
 	// 	return val >= 59 && val <= 76
 	// }
-	re := regexp.MustCompile("^((150|1[6-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in)$")
+
+	// return false
+	re := regexp.MustCompile("^((1[5-8][0-9]|19[0-3])cm|(59|6[0-9]|7[0-6])in)$")
 
 	return re.MatchString(s)
 }

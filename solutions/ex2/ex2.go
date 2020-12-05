@@ -1,4 +1,4 @@
-package solutions
+package ex2
 
 import (
 	"fmt"
@@ -12,7 +12,9 @@ type pass struct {
 	p        string
 }
 
-func Ex2a(lines []string) {
+const Path = "./solutions/ex2"
+
+func A(lines []string) {
 
 	count := 0
 
@@ -45,7 +47,7 @@ func Ex2a(lines []string) {
 	fmt.Println(count)
 }
 
-func Ex2b(lines []string) {
+func B(lines []string) {
 
 	count := 0
 

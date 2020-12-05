@@ -1,8 +1,10 @@
-package solutions
+package ex3
 
 import "fmt"
 
-func Ex3a(lines []string) {
+const Path = "./solutions/ex3"
+
+func A(lines []string) {
 	count := 0
 	le := len(lines[0])
 	gMap := map[int]map[int]rune{}
@@ -29,7 +31,7 @@ func Ex3a(lines []string) {
 	fmt.Println(count)
 }
 
-func Ex3b(lines []string) {
+func B(lines []string) {
 	le := len(lines[0])
 	gMap := map[int]map[int]rune{}
 	for i, line := range lines {
