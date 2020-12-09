@@ -53,7 +53,8 @@ func B(lines []string) {
 		graph[name] = node
 	}
 
-	count = howManyBags("shiny gold", &counts, graph) - 1
+	// count = howManyBags("shiny gold", &counts, graph) - 1
+	count = howManyBags("muted olive", &counts, graph) - 1
 	fmt.Println(count)
 }
 
