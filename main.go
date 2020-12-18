@@ -4,13 +4,13 @@ import (
 	"fmt"
 
 	"github.com/mw332637/advent/ioutils"
-	"github.com/mw332637/advent/solutions/ex17"
+	"github.com/mw332637/advent/solutions/ex18"
 )
 
 var lines []string
 
 func main() {
-	fileNames := ioutils.ReadArgs(ex17.Path)
+	fileNames := ioutils.ReadArgs(ex18.Path)
 
 	for _, name := range fileNames {
 		lines = ioutils.LoadFileLines(name)
@@ -18,10 +18,10 @@ func main() {
 		fmt.Println("File: ", name)
 
 		fmt.Print("A: ")
-		ex17.A(lines)
+		ex18.A(lines)
 
 		fmt.Print("B: ")
-		ex17.B(lines)
+		ex18.B(lines)
 
 		fmt.Println()
 	}
